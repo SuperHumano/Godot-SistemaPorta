@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceu0tsy8nj37l"]
+
+[ext_resource type="Script" path="res://Scripts/mundo.gd" id="1_5lrwk"]
+[ext_resource type="PackedScene" uid="uid://dq6osrn6bsf8c" path="res://Cenas/Mapa/casa_para_testes.tscn" id="1_7i5cc"]
+[ext_resource type="PackedScene" uid="uid://dphwneeyus20d" path="res://Cenas/Porta/porta.tscn" id="2_bbxsl"]
+[ext_resource type="PackedScene" uid="uid://4e4h71kurcy3" path="res://Cenas/Jogador/jogador.tscn" id="3_48n0w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jqrbq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rpgsp"]
+sky_material = SubResource("ProceduralSkyMaterial_jqrbq")
+
+[sub_resource type="Environment" id="Environment_q38jd"]
+background_mode = 2
+sky = SubResource("Sky_rpgsp")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Mundo" type="Node"]
+script = ExtResource("1_5lrwk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q38jd")
+
+[node name="casa para testes" parent="." instance=ExtResource("1_7i5cc")]
+
+[node name="Porta" parent="." instance=ExtResource("2_bbxsl")]
+transform = Transform3D(1.58, 0, 0, 0, 0.975, 0, 0, 0, 1, -1.78312, 0, 4.30326)
+
+[node name="Jogador" parent="." instance=ExtResource("3_48n0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35394, 0, 5.87321)
