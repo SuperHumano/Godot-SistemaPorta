@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pular") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	var input_dir : Vector2 = Input.get_vector("esquerda", "direita", "frente", "traz")
+	var input_dir : Vector2 = Input.get_vector("esquerda", "direita", "frente", "tras")
 	var direction := (cabeca.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
