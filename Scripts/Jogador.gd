@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-
+# ao invés de fazer um raycast pequeno na distância de interação, optei por dispor de um raycast comprido que possa ser utilizado para outras funcionalidades também
 func _interact():
 	if ray.is_colliding():
 		if global_transform.origin.distance_to(ray.get_collision_point()) < RANGE:
